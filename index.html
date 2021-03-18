@@ -10,8 +10,13 @@
     </head>
     <body>
         <img src="jas.png">
-        <audio src="sound.mp3" autoplay loop>
+        <audio id="music" src="sound.mp3" autoplay loop>
         </audio>
-        <script src="" async defer></script>
+        <script src="" async defer>
+            const player = document.getElementById('music');
+            player.addEventListener('canplaythrough', function() {
+                player.play();
+            }, false);
+        </script>
     </body>
 </html>
