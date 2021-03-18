@@ -22,16 +22,13 @@
 
         const swap = async () => {
             const img = document.getElementById('jas');
-            console.log('hi')
             img.src = 'jas.png'
             await new Promise(r => setTimeout(r, 100));
             img.src = 'jas2.png'
-            console.log('hi2')
             timer = setTimeout(swap, 200);
         }
         let timer = setTimeout(swap, 200);
 
-        swap()
     </script>
 </body>
 
