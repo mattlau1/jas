@@ -12,13 +12,13 @@
 </head>
 
 <body>
+    <div id="black"><button id="enter">Click to Enter Site</button></div>
     <img id="jas" src="jas.png">
-    <audio id="music" src="sound.mp3" autoplay loop></audio>
+
+    <audio id="music" src="sound.mp3" autoplay loop muted></audio>
     <script async defer>
+        const black = document.getElementById('black');
         const player = document.getElementById('music');
-        player.addEventListener('canplaythrough', function () {
-            player.play();
-        }, false);
 
         const swap = async () => {
             const img = document.getElementById('jas');
@@ -27,8 +27,22 @@
             img.src = 'jas2.png'
             timer = setTimeout(swap, 200);
         }
-        let timer = setTimeout(swap, 200);
 
+        const buttonEvent = () => {
+            const btn = document.getElementById('enter');
+            btn.addEventListener("click", () => {
+                const black = document.getElementById('black');
+                const player = document.getElementById('music');
+                black.style.visibility = 'hidden'
+                player.muted = false;
+                player.play();
+            })
+
+        }
+        buttonEvent()
+
+
+        let timer = setTimeout(swap, 200);
     </script>
 </body>
 
