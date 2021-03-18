@@ -1,22 +1,38 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>COMP2521 Lecture 1</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="main.css">
-        <link rel="icon" type="image/png" href="/jas.png"/>
-    </head>
-    <body>
-        <img src="jas.png">
-        <audio id="music" src="sound.mp3" autoplay loop></audio>
-        <script src="" async defer>
-            const player = document.getElementById('music');
-            player.addEventListener('canplaythrough', function() {
-                player.play();
-            }, false);
-        </script>
-    </body>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>COMP2521 Lecture 1</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="main.css">
+    <link rel="icon" type="image/png" href="/jas.png" />
+</head>
+
+<body>
+    <img id="jas" src="jas.png">
+    <audio id="music" src="sound.mp3" autoplay loop></audio>
+    <script async defer>
+        const player = document.getElementById('music');
+        player.addEventListener('canplaythrough', function () {
+            player.play();
+        }, false);
+
+        const swap = async () => {
+            const img = document.getElementById('jas');
+            console.log('hi')
+            img.src = 'jas.png'
+            await new Promise(r => setTimeout(r, 100));
+            img.src = 'jas2.png'
+            console.log('hi2')
+            timer = setTimeout(swap, 200);
+        }
+        let timer = setTimeout(swap, 200);
+
+        swap()
+    </script>
+</body>
+
 </html>
